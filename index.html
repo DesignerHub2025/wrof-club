@@ -1,0 +1,2911 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#101411">
+
+  <meta
+    name="description"
+    content="الوفاق الرياضي أولاد فايت — W.R.O.F C.S.A. بودو كاراتيه وفنون قتالية. روابط النادي والتواصل والاستفسار عن التسجيل."
+  >
+
+  <title>W.R.O.F C.S.A | الوفاق الرياضي أولاد فايت</title>
+
+  <link rel="icon" type="image/png" href="./logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* =========================================
+       DESIGN SYSTEM
+    ========================================= */
+
+    :root {
+      --paper: #f3f2ed;
+      --white: #ffffff;
+      --ink: #101411;
+      --muted: #60675f;
+      --line: #d8dcd3;
+      --red: #c92834;
+      --bright: #ff6268;
+      --green: #14563d;
+
+      --body: "Cairo", system-ui, sans-serif;
+      --display: "Barlow Condensed", Impact, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[lang="fr"] {
+      --body: "Inter", system-ui, sans-serif;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button,
+    select,
+    textarea {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #2385ce;
+      outline-offset: 5px;
+    }
+
+    ::selection {
+      background: var(--red);
+      color: white;
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+
+    .icon-solid {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .svg-library {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .wrap {
+      width: min(1220px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .skip {
+      position: fixed;
+      inset-block-start: -100px;
+      inset-inline-start: 16px;
+      background: white;
+      padding: 12px 20px;
+      z-index: 100;
+    }
+
+    .skip:focus {
+      inset-block-start: 12px;
+    }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 102px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .emblem {
+      position: relative;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: white;
+      overflow: hidden;
+    }
+
+    .emblem img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: white;
+      z-index: 1;
+    }
+
+    .emblem.is-missing img {
+      display: none;
+    }
+
+    .emblem-fallback {
+      text-align: center;
+      font: 800 14px/1.2 var(--display);
+      color: var(--ink);
+    }
+
+    .brand .emblem {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--line);
+    }
+
+    .brand-name {
+      display: block;
+      font: 800 29px/.95 var(--display);
+      letter-spacing: .035em;
+    }
+
+    .brand-caption {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      margin-top: 6px;
+      color: var(--muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 800;
+      margin-inline-end: 12px;
+    }
+
+    .square-btn {
+      min-width: 44px;
+      height: 44px;
+      padding: 0 12px;
+
+      display: grid;
+      place-items: center;
+
+      background: transparent;
+      border: 1px solid #bcc3b8;
+      border-radius: 4px;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      transition:
+        background .2s,
+        color .2s;
+    }
+
+    .square-btn:hover {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.06fr)
+        minmax(0, 1fr);
+
+      background: var(--ink);
+      color: var(--paper);
+
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .hero-copy {
+      min-width: 0;
+      padding: clamp(28px, 4.5vw, 64px);
+      align-self: center;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .035em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 3px;
+      background: var(--red);
+    }
+
+    .hero .eyebrow {
+      color: #d8ded6;
+    }
+
+    .headline {
+      margin-top: 25px;
+      font-size: clamp(42px, 4.6vw, 63px);
+      font-weight: 900;
+      line-height: 1.34;
+      letter-spacing: 0;
+    }
+
+    .headline span {
+      display: block;
+    }
+
+    .headline .accent {
+      color: var(--bright);
+    }
+
+    html[lang="fr"] .headline {
+      font-family: var(--display);
+      font-size: clamp(52px, 6.1vw, 82px);
+      font-weight: 800;
+      line-height: .98;
+      letter-spacing: -.02em;
+      text-transform: uppercase;
+    }
+
+    html[lang="fr"] .headline .accent {
+      margin-top: 8px;
+    }
+
+    .club-name {
+      margin-top: 22px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .hero-desc {
+      margin-top: 9px;
+      max-width: 410px;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #bfc7be;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      min-height: 51px;
+      padding: 12px 19px;
+
+      border: 1px solid transparent;
+      border-radius: 4px;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 11px;
+
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+
+      transition:
+        transform .2s,
+        background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-red {
+      color: white;
+      background: var(--red);
+    }
+
+    .btn-red:hover {
+      background: #b61f2b;
+    }
+
+    .btn-outline {
+      border-color: #4f5950;
+      color: white;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #253127;
+    }
+
+    .btn-ink {
+      background: var(--ink);
+      color: white;
+    }
+
+    .direction-arrow {
+      transition: transform .2s;
+    }
+
+    html[dir="rtl"] .direction-arrow {
+      transform: rotate(180deg);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      margin-top: 29px;
+      padding-top: 19px;
+      border-top: 1px solid #354037;
+
+      font-size: 10px;
+      color: #b8c1b6;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .hero-meta i {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #8aa590;
+    }
+
+    /* =========================================
+       CLUB POSTER
+    ========================================= */
+
+    .hero-art {
+      direction: ltr;
+      position: relative;
+      min-width: 0;
+      min-height: 560px;
+
+      margin: 14px;
+      margin-inline-start: 0;
+
+      background: #e9eae2;
+      color: var(--ink);
+
+      display: grid;
+      place-items: center;
+
+      isolation: isolate;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: #dc3540;
+
+      clip-path: polygon(
+        75% 0,
+        100% 0,
+        100% 100%,
+        4% 100%
+      );
+    }
+
+    .art-grid {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .17;
+
+      background-image:
+        linear-gradient(
+          #718274 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          #718274 1px,
+          transparent 1px
+        );
+
+      background-size: 46px 46px;
+    }
+
+    .art-top {
+      position: absolute;
+      inset: 24px 25px auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+
+      font-size: 9px;
+      line-height: 1.6;
+      font-weight: 800;
+      font-family: "Inter", sans-serif;
+      letter-spacing: .13em;
+    }
+
+    .art-top b {
+      font-size: 11px;
+    }
+
+    .art-cross {
+      font: 400 33px/1 var(--display);
+    }
+
+    .emblem-frame {
+      width: 77%;
+      aspect-ratio: 1;
+
+      border: 1px solid rgba(16, 20, 17, .42);
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+      transform: rotate(-8deg);
+    }
+
+    .emblem-frame::before,
+    .emblem-frame::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--ink);
+    }
+
+    .emblem-frame::before {
+      top: -3px;
+      left: -3px;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    .emblem-frame::after {
+      bottom: -3px;
+      right: -3px;
+      border-left: 0;
+      border-top: 0;
+    }
+
+    .hero-emblem {
+      width: min(69%, 272px);
+      aspect-ratio: 1;
+      transform: rotate(8deg);
+
+      box-shadow:
+        0 14px 0 rgba(16, 20, 17, .12),
+        0 0 0 10px rgba(255, 255, 255, .28);
+    }
+
+    .hero-emblem .emblem-fallback {
+      font-size: 42px;
+    }
+
+    .hero-emblem .emblem-fallback small {
+      display: block;
+      font-size: 19px;
+      letter-spacing: .3em;
+    }
+
+    .art-word {
+      position: absolute;
+      bottom: -22px;
+      inset-inline: 0;
+
+      text-align: center;
+
+      font:
+        800
+        clamp(110px, 12vw, 166px)/1
+        var(--display);
+
+      letter-spacing: -.035em;
+      color: rgba(16, 20, 17, .92);
+      pointer-events: none;
+    }
+
+    .art-side {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+
+      writing-mode: vertical-rl;
+      transform: translateY(-50%) rotate(180deg);
+
+      font: 700 9px "Inter", sans-serif;
+      letter-spacing: .2em;
+    }
+
+    /* =========================================
+       VALUES RIBBON
+    ========================================= */
+
+    .ribbon {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 12px;
+
+      padding: 18px 14px;
+      border-bottom: 1px solid var(--line);
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .ribbon b {
+      color: var(--red);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .ribbon .latin {
+      font: 700 15px var(--display);
+      letter-spacing: .08em;
+    }
+
+    /* =========================================
+       SECTIONS
+    ========================================= */
+
+    .section {
+      margin-top: 65px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 23px;
+    }
+
+    .section-kicker {
+      display: block;
+      color: var(--red);
+
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+
+      margin-bottom: 7px;
+    }
+
+    html[dir="rtl"] .section-kicker {
+      text-align: right;
+    }
+
+    .section-head h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.45;
+      font-weight: 900;
+      letter-spacing: -.035em;
+    }
+
+    .section-head p {
+      max-width: 295px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* =========================================
+       CONTACT GRID
+    ========================================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .contact-card {
+      position: relative;
+      padding: 25px 28px;
+
+      border-radius: 5px;
+      overflow: hidden;
+
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+
+      transition: transform .22s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .card-top .serial {
+      font: 600 10px "Inter", sans-serif;
+      letter-spacing: .09em;
+      opacity: .8;
+    }
+
+    .card-top .icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    .feature-card {
+      min-height: 238px;
+      color: white;
+    }
+
+    .facebook-card {
+      background: var(--ink);
+    }
+
+    .whatsapp-card {
+      background: var(--green);
+    }
+
+    .facebook-card::after {
+      content: "f";
+      position: absolute;
+      inset-inline-end: 50px;
+      bottom: -74px;
+
+      font: 800 285px/1 Arial, sans-serif;
+      color: rgba(255, 255, 255, .055);
+
+      pointer-events: none;
+    }
+
+    .feature-card h3 {
+      margin-top: 28px;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      margin-top: auto;
+      padding-top: 16px;
+    }
+
+    .card-bottom p {
+      font-size: 12px;
+      color: #d1dad1;
+    }
+
+    .arrow-box {
+      width: 39px;
+      height: 39px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid rgba(255, 255, 255, .35);
+      border-radius: 3px;
+
+      flex-shrink: 0;
+    }
+
+    .plain-card {
+      background: #fafbf6;
+      border: 1px solid var(--line);
+      min-height: 160px;
+    }
+
+    .plain-card .card-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      margin-top: 22px;
+      display: block;
+
+      direction: ltr;
+      text-align: start;
+
+      font:
+        700
+        clamp(25px, 3vw, 38px)/1.3
+        var(--display);
+
+      letter-spacing: .02em;
+    }
+
+    html[dir="rtl"] .contact-value {
+      text-align: right;
+    }
+
+    .contact-value.email {
+      font:
+        600
+        clamp(14px, 1.8vw, 21px)/1.5
+        "Inter", sans-serif;
+
+      letter-spacing: -.02em;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================================
+       CLUB SPIRIT
+    ========================================= */
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      border-top: 1px solid #b8c0b5;
+      border-bottom: 1px solid #b8c0b5;
+    }
+
+    .value-item {
+      padding: 30px 25px;
+      border-inline-end: 1px solid var(--line);
+    }
+
+    .value-item:first-child {
+      padding-inline-start: 0;
+    }
+
+    .value-item:last-child {
+      border-inline-end: 0;
+    }
+
+    .value-number {
+      font: 600 13px var(--display);
+      color: var(--red);
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .value-item h3 {
+      font-size: 21px;
+      margin-top: 13px;
+    }
+
+    .value-item p {
+      font-size: 12px;
+      margin-top: 8px;
+      color: var(--muted);
+      max-width: 285px;
+    }
+
+    /* =========================================
+       FAQ
+    ========================================= */
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 60px;
+    }
+
+    .faq-title h2 {
+      font-size: 31px;
+      font-weight: 900;
+      line-height: 1.5;
+    }
+
+    .faq-title p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 12px;
+      max-width: 290px;
+    }
+
+    details {
+      border-top: 1px solid #bec6b9;
+    }
+
+    details:last-child {
+      border-bottom: 1px solid #bec6b9;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+
+      padding: 20px 0;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font: 400 27px/1 var(--display);
+      color: var(--red);
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    .faq-answer {
+      padding: 0 0 21px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.95;
+    }
+
+    .text-link {
+      display: inline-block;
+      color: var(--red);
+      font-weight: 800;
+      border-bottom: 1px solid currentColor;
+      margin-top: 8px;
+    }
+
+    /* =========================================
+       CLOSING SECTION
+    ========================================= */
+
+    .closing {
+      position: relative;
+      background: var(--ink);
+      color: var(--paper);
+
+      padding: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .closing::before {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: 5px;
+      background: var(--red);
+    }
+
+    .closing h2 {
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .closing p {
+      color: #c0cabf;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .closing .btn {
+      flex-shrink: 0;
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+
+      padding: 30px 0 35px;
+
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .footer-brand {
+      font: 800 25px var(--display);
+      color: var(--ink);
+      letter-spacing: .02em;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
+    /* =========================================
+       MOBILE CONTACT BAR
+    ========================================= */
+
+    .mobile-dock {
+      display: none;
+
+      position: fixed;
+      z-index: 30;
+      bottom: 0;
+      inset-inline: 0;
+
+      background: rgba(243, 242, 237, .97);
+      border-top: 1px solid var(--line);
+
+      padding:
+        10px
+        16px
+        calc(10px + env(safe-area-inset-bottom));
+
+      gap: 9px;
+
+      transform: translateY(120%);
+      transition: transform .25s;
+      pointer-events: none;
+    }
+
+    .mobile-dock.is-visible {
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .mobile-dock .btn {
+      min-height: 47px;
+    }
+
+    .mobile-dock .btn:first-child {
+      flex: 1.4;
+    }
+
+    .mobile-dock .btn:last-child {
+      flex: 1;
+    }
+
+    /* =========================================
+       MESSAGE COMPOSER
+       This is not an online registration form.
+    ========================================= */
+
+    dialog {
+      width: min(520px, calc(100% - 28px));
+      max-height: calc(100dvh - 32px);
+
+      padding: 0;
+      border: 0;
+      border-radius: 9px;
+
+      background: var(--paper);
+      color: var(--ink);
+
+      box-shadow: 0 28px 100px rgba(0, 0, 0, .3);
+    }
+
+    dialog::backdrop {
+      background: rgba(8, 14, 10, .78);
+    }
+
+    .dialog-inner {
+      padding: 30px;
+    }
+
+    .dialog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .dialog-head h2 {
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .dialog-desc {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .form-label {
+      display: block;
+      margin: 20px 0 7px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    select,
+    textarea {
+      width: 100%;
+      background: #ffffff;
+
+      border: 1px solid #bec7b9;
+      border-radius: 4px;
+
+      padding: 12px;
+      font-size: 13px;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+      line-height: 1.85;
+    }
+
+    .privacy-note {
+      color: var(--muted);
+      font-size: 10px;
+      margin: 12px 0 17px;
+    }
+
+    .form-submit {
+      width: 100%;
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 100;
+      bottom: 100px;
+      left: 50%;
+
+      transform: translate(-50%, 14px);
+      opacity: 0;
+      pointer-events: none;
+
+      background: var(--ink);
+      color: white;
+
+      border: 1px solid #53604f;
+      border-radius: 5px;
+
+      padding: 12px 19px;
+
+      width: max-content;
+      max-width: calc(100% - 32px);
+
+      font-size: 12px;
+
+      transition:
+        opacity .2s,
+        transform .2s;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* Content stays visible when JavaScript is disabled. */
+    .will-reveal {
+      opacity: 0;
+      transform: translateY(16px);
+
+      transition:
+        opacity .55s ease,
+        transform .55s ease;
+    }
+
+    .will-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1000px) {
+      .hero-copy {
+        padding: 32px;
+      }
+
+      .hero-art {
+        min-height: 530px;
+      }
+
+      .headline {
+        font-size: clamp(34px, 4.4vw, 44px);
+      }
+
+      html[lang="fr"] .headline {
+        font-size: clamp(40px, 5.2vw, 54px);
+      }
+
+      .hero-actions .btn {
+        padding: 12px 15px;
+        font-size: 11px;
+      }
+
+      .club-name {
+        font-size: 15px;
+      }
+
+      .faq-layout {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .wrap {
+        width: calc(100% - 28px);
+      }
+
+      .site-header {
+        min-height: 84px;
+        gap: 12px;
+      }
+
+      .brand .emblem {
+        width: 43px;
+        height: 43px;
+      }
+
+      .brand {
+        gap: 9px;
+      }
+
+      .brand-name {
+        font-size: 25px;
+      }
+
+      .brand-caption {
+        font-size: 8px;
+      }
+
+      .nav-link {
+        display: none;
+      }
+
+      .header-actions {
+        gap: 7px;
+      }
+
+      .square-btn {
+        height: 42px;
+        min-width: 42px;
+        padding: 0 10px;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-copy {
+        padding: 30px 25px 25px;
+      }
+
+      .headline {
+        font-size: clamp(39px, 9.8vw, 58px);
+        margin-top: 17px;
+      }
+
+      html[lang="fr"] .headline {
+        font-size: clamp(41px, 12.8vw, 77px);
+      }
+
+      .club-name {
+        font-size: 16px;
+        margin-top: 17px;
+      }
+
+      .hero-desc {
+        font-size: 13px;
+        max-width: 100%;
+        margin-top: 5px;
+      }
+
+      .hero-actions {
+        margin-top: 20px;
+      }
+
+      .hero-actions .btn {
+        flex: 1;
+        min-width: 120px;
+        padding: 12px 10px;
+        font-size: 11px;
+      }
+
+      .hero-meta {
+        margin-top: 21px;
+        padding-top: 15px;
+      }
+
+      .hero-art {
+        min-height: 0;
+        height: 280px;
+        margin: 0 12px 12px;
+      }
+
+      .emblem-frame {
+        width: 230px;
+      }
+
+      .hero-emblem {
+        width: 160px;
+
+        box-shadow:
+          0 9px 0 rgba(16, 20, 17, .13),
+          0 0 0 7px rgba(255, 255, 255, .3);
+      }
+
+      .hero-emblem .emblem-fallback {
+        font-size: 27px;
+      }
+
+      .art-top {
+        inset: 15px 18px auto;
+        font-size: 8px;
+      }
+
+      .art-top b {
+        font-size: 10px;
+      }
+
+      .art-word {
+        font-size: 100px;
+        bottom: -16px;
+        text-align: end;
+        padding-right: 15px;
+        opacity: .82;
+      }
+
+      .art-side {
+        left: 11px;
+        font-size: 8px;
+      }
+
+      .ribbon {
+        padding: 15px 4px;
+        gap: 8px;
+        font-size: 10px;
+      }
+
+      .ribbon .latin {
+        font-size: 12px;
+      }
+
+      .section {
+        margin-top: 43px;
+      }
+
+      .section-head {
+        display: block;
+        margin-bottom: 18px;
+      }
+
+      .section-head h2 {
+        font-size: 26px;
+      }
+
+      .section-head p {
+        max-width: 100%;
+        margin-top: 9px;
+      }
+
+      .contact-card {
+        padding: 21px;
+      }
+
+      .feature-card {
+        min-height: 218px;
+      }
+
+      .feature-card h3 {
+        font-size: 21px;
+      }
+
+      .contact-value {
+        font-size: 27px;
+      }
+
+      .contact-value.email {
+        font-size: 14px;
+      }
+
+      .value-item {
+        padding: 23px 14px;
+      }
+
+      .value-item h3 {
+        font-size: 17px;
+      }
+
+      .value-item p {
+        font-size: 11px;
+      }
+
+      .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .faq-title h2 {
+        font-size: 26px;
+      }
+
+      .faq-title p {
+        max-width: 100%;
+        margin-top: 7px;
+      }
+
+      .closing {
+        display: block;
+        padding: 28px;
+      }
+
+      .closing h2 {
+        font-size: 23px;
+      }
+
+      .closing .btn {
+        margin-top: 21px;
+        width: 100%;
+      }
+
+      .site-footer {
+        padding-bottom: 110px;
+        align-items: start;
+        flex-wrap: wrap;
+      }
+
+      .mobile-dock {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 470px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: 200px;
+      }
+
+      .feature-card h3 {
+        margin-top: 23px;
+      }
+
+      .plain-card {
+        min-height: 123px;
+      }
+
+      .contact-value {
+        margin-top: 14px;
+        font-size: 31px;
+      }
+
+      .contact-value.email {
+        font-size: 18px;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-item,
+      .value-item:first-child {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        column-gap: 15px;
+
+        padding: 19px 0;
+
+        border-inline-end: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .value-item:last-child {
+        border-bottom: 0;
+      }
+
+      .value-number {
+        grid-row: 1 / 3;
+        padding-top: 6px;
+      }
+
+      .value-item h3 {
+        margin-top: 0;
+        font-size: 18px;
+      }
+
+      .value-item p {
+        margin-top: 3px;
+        max-width: none;
+      }
+
+      .dialog-inner {
+        padding: 23px;
+      }
+
+      .dialog-head h2 {
+        font-size: 20px;
+      }
+
+      .ribbon .latin {
+        display: none;
+      }
+
+      .ribbon b:last-of-type {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .will-reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reusable icons: no external icon library required. -->
+  <svg
+    class="svg-library"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h15m-6-6 6 6-6 6"/>
+      </symbol>
+
+      <symbol id="i-share" viewBox="0 0 24 24">
+        <circle cx="18" cy="5" r="3"/>
+        <circle cx="6" cy="12" r="3"/>
+        <circle cx="18" cy="19" r="3"/>
+        <path d="m8.7 10.5 6.6-4m-6.6 7 6.6 4"/>
+      </symbol>
+
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path
+          d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"
+        />
+      </symbol>
+
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2"/>
+        <path d="m3 6 9 7 9-7"/>
+      </symbol>
+
+      <symbol id="i-chat" viewBox="0 0 24 24">
+        <path
+          d="M21 11.5a9.3 9.3 0 0 1-14 8L3 21l1.5-4A9.3 9.3 0 1 1 21 11.5Z"
+        />
+        <path
+          d="m8 7 2 3-1 1a8 8 0 0 0 4 4l1-1 3 2c-1 3-4 2-7-1S6 10 8 7Z"
+        />
+      </symbol>
+
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path
+          d="M14.1 22v-9.1h3.1l.5-3.6h-3.6V7c0-1 .3-1.8 1.8-1.8h1.9V2a25 25 0 0 0-2.8-.2c-2.8 0-4.8 1.7-4.8 4.9v2.6H7v3.6h3.2V22Z"
+        />
+      </symbol>
+
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M6 18 18 6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a
+    class="skip"
+    href="#main"
+    data-fr="Aller au contenu"
+  >
+    انتقل إلى المحتوى
+  </a>
+
+  <!-- =====================================
+       HEADER
+  ====================================== -->
+
+  <header class="site-header wrap">
+    <a
+      class="brand"
+      href="#main"
+      aria-label="W.R.O.F C.S.A"
+    >
+      <span class="emblem">
+        <span class="emblem-fallback" aria-hidden="true">
+          WROF
+        </span>
+
+        <img
+          src="./logo.png"
+          width="52"
+          height="52"
+          alt=""
+          decoding="async"
+        >
+      </span>
+
+      <span>
+        <span class="brand-name" dir="ltr">
+          W.R.O.F
+        </span>
+
+        <span
+          class="brand-caption"
+          data-fr="C.S.A · OULED FAYET"
+        >
+          نادي رياضي · أولاد فايت
+        </span>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <a
+        class="nav-link"
+        href="#links"
+        data-fr="Les liens du club"
+      >
+        روابط النادي
+      </a>
+
+      <button
+        class="square-btn"
+        id="languageButton"
+        type="button"
+        aria-label="Passer en français"
+        hidden
+      >
+        FR
+      </button>
+
+      <button
+        class="square-btn"
+        id="shareButton"
+        type="button"
+        aria-label="مشاركة الموقع"
+        hidden
+      >
+        <svg class="icon" aria-hidden="true">
+          <use href="#i-share"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section
+      class="hero"
+      id="hero"
+      aria-labelledby="heroTitle"
+    >
+      <div class="hero-copy">
+        <p
+          class="eyebrow"
+          data-fr="BUDO KARATÉ · ARTS MARTIAUX"
+        >
+          بودو كاراتيه · فنون قتالية
+        </p>
+
+        <h1 class="headline" id="heroTitle">
+          <span data-fr="LA FORCE.">
+            القوة تبدأ
+          </span>
+
+          <span
+            class="accent"
+            data-fr="LA DISCIPLINE."
+          >
+            بالانضباط.
+          </span>
+        </h1>
+
+        <p
+          class="club-name"
+          data-fr="W.R.O.F C.S.A — Ouled Fayet"
+        >
+          الوفاق الرياضي أولاد فايت
+        </p>
+
+        <p
+          class="hero-desc"
+          data-fr="Découvrez le club, retrouvez ses actualités et échangez avec l'équipe pour préparer votre premier pas sur le tatami."
+        >
+          اكتشف النادي، تابع أخباره، وتواصل مع الفريق
+          لتعرف كيف تبدأ خطوتك الأولى على البساط.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="btn btn-red"
+            data-enquiry="registration"
+            href="https://wa.me/213780695374?text=Bonjour%20WROF%2C%20je%20souhaite%20des%20informations%20sur%20les%20inscriptions."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span data-fr="Se renseigner">
+              معلومات التسجيل
+            </span>
+
+            <svg
+              class="icon direction-arrow"
+              aria-hidden="true"
+            >
+              <use href="#i-arrow"/>
+            </svg>
+          </a>
+
+          <a
+            class="btn btn-outline"
+            href="https://www.facebook.com/share/19n8ZdKoHm/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              class="icon icon-solid"
+              aria-hidden="true"
+            >
+              <use href="#i-facebook"/>
+            </svg>
+
+            <span data-fr="Découvrir le club">
+              اكتشف النادي
+            </span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>
+            <i aria-hidden="true"></i>
+
+            <span data-fr="Ouled Fayet · Algérie">
+              أولاد فايت · الجزائر
+            </span>
+          </span>
+
+          <span dir="ltr">
+            W.R.O.F C.S.A
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div
+          class="art-grid"
+          aria-hidden="true"
+        ></div>
+
+        <div class="art-top" aria-hidden="true">
+          <span>
+            <b>W.R.O.F / C.S.A</b>
+            <br>
+            BUDO KARATÉ
+          </span>
+
+          <span class="art-cross">+</span>
+        </div>
+
+        <span class="art-side" aria-hidden="true">
+          OULED FAYET — ALGÉRIE
+        </span>
+
+        <div class="emblem-frame">
+          <div class="emblem hero-emblem">
+            <span
+              class="emblem-fallback"
+              aria-hidden="true"
+            >
+              W.R.O.F
+              <small>C.S.A</small>
+            </span>
+
+            <img
+              src="./logo.png"
+              width="276"
+              height="276"
+              alt="شعار الوفاق الرياضي أولاد فايت"
+              id="heroLogo"
+              decoding="async"
+              fetchpriority="high"
+            >
+          </div>
+        </div>
+
+        <span class="art-word" aria-hidden="true">
+          WROF.
+        </span>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-label="قيم رياضية">
+      <span data-fr="DISCIPLINE">انضباط</span>
+      <b aria-hidden="true">+</b>
+
+      <span data-fr="RESPECT">احترام</span>
+      <b aria-hidden="true">+</b>
+
+      <span data-fr="COLLECTIF">روح الفريق</span>
+      <b aria-hidden="true">+</b>
+
+      <span class="latin" dir="ltr">
+        BUDO KARATÉ
+      </span>
+    </div>
+
+    <!-- =====================================
+         CONTACT LINKS
+    ====================================== -->
+
+    <section
+      id="links"
+      class="section"
+      aria-labelledby="linksTitle"
+    >
+      <div class="section-head">
+        <div>
+          <span class="section-kicker" dir="ltr">
+            01 / CONNECT
+          </span>
+
+          <h2
+            id="linksTitle"
+            data-fr="Le club. En un clic."
+          >
+            النادي، على بُعد ضغطة.
+          </h2>
+        </div>
+
+        <p
+          data-fr="Actualités, contact et renseignements : choisissez votre accès."
+        >
+          الأخبار، التواصل والاستفسارات.
+          اختر ما تحتاجه مباشرة.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <a
+          class="contact-card feature-card facebook-card reveal"
+          href="https://www.facebook.com/share/19n8ZdKoHm/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="card-top">
+            <span class="serial" dir="ltr">
+              01 / FACEBOOK
+            </span>
+
+            <svg
+              class="icon icon-solid"
+              aria-hidden="true"
+            >
+              <use href="#i-facebook"/>
+            </svg>
+          </div>
+
+          <h3 data-fr="Au cœur de la vie du club.">
+            عِش أجواء النادي.
+          </h3>
+
+          <div class="card-bottom">
+            <p
+              data-fr="Les publications et les nouvelles du club."
+            >
+              منشورات النادي وأخباره على فيسبوك.
+            </p>
+
+            <span class="arrow-box">
+              <svg
+                class="icon direction-arrow"
+                aria-hidden="true"
+              >
+                <use href="#i-arrow"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a
+          class="contact-card feature-card whatsapp-card reveal"
+          data-wa="general"
+          href="https://wa.me/213780695374"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="card-top">
+            <span class="serial" dir="ltr">
+              02 / WHATSAPP
+            </span>
+
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-chat"/>
+            </svg>
+          </div>
+
+          <h3 data-fr="Une question ? Parlons-en.">
+            عندك سؤال؟ لنتحدث.
+          </h3>
+
+          <div class="card-bottom">
+            <p
+              data-fr="Inscriptions, séances et renseignements."
+            >
+              التسجيل، الحصص وكل استفساراتك.
+            </p>
+
+            <span class="arrow-box">
+              <svg
+                class="icon direction-arrow"
+                aria-hidden="true"
+              >
+                <use href="#i-arrow"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a
+          class="contact-card plain-card reveal"
+          href="tel:+213780695374"
+        >
+          <div class="card-top">
+            <span
+              class="card-label"
+              data-fr="APPELER LE CLUB"
+            >
+              اتصل بالنادي
+            </span>
+
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-phone"/>
+            </svg>
+          </div>
+
+          <bdi class="contact-value">
+            0780 69 53 74
+          </bdi>
+        </a>
+
+        <a
+          class="contact-card plain-card reveal"
+          href="mailto:wrof.karate@gmail.com"
+        >
+          <div class="card-top">
+            <span
+              class="card-label"
+              data-fr="ÉCRIRE AU CLUB"
+            >
+              راسل النادي
+            </span>
+
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-mail"/>
+            </svg>
+          </div>
+
+          <bdi class="contact-value email">
+            wrof.karate@gmail.com
+          </bdi>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- =====================================
+         CLUB SPIRIT
+    ====================================== -->
+
+    <section
+      class="section reveal"
+      aria-labelledby="spiritTitle"
+    >
+      <div class="section-head">
+        <div>
+          <span class="section-kicker" dir="ltr">
+            02 / L'ESPRIT
+          </span>
+
+          <h2
+            id="spiritTitle"
+            data-fr="Sur le tatami. Dans la vie."
+          >
+            على البساط. وفي الحياة.
+          </h2>
+        </div>
+      </div>
+
+      <div class="value-grid">
+        <article class="value-item">
+          <span class="value-number">01.</span>
+
+          <h3 data-fr="Discipline">
+            الانضباط
+          </h3>
+
+          <p
+            data-fr="La régularité. L'effort. Un pas après l'autre."
+          >
+            الاستمرارية، الجهد،
+            والتقدم خطوةً بعد خطوة.
+          </p>
+        </article>
+
+        <article class="value-item">
+          <span class="value-number">02.</span>
+
+          <h3 data-fr="Respect">
+            الاحترام
+          </h3>
+
+          <p
+            data-fr="De soi, du partenaire et de l'esprit du sport."
+          >
+            احترام الذات، الزميل، وروح الرياضة.
+          </p>
+        </article>
+
+        <article class="value-item">
+          <span class="value-number">03.</span>
+
+          <h3 data-fr="Collectif">
+            روح الفريق
+          </h3>
+
+          <p
+            data-fr="S'entraider, apprendre et avancer ensemble."
+          >
+            نتعاون، نتعلم، ونتقدم معًا.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================
+         FAQ
+    ====================================== -->
+
+    <section
+      class="section faq-layout reveal"
+      aria-labelledby="faqTitle"
+    >
+      <div class="faq-title">
+        <span class="section-kicker" dir="ltr">
+          03 / PREMIER PAS
+        </span>
+
+        <h2
+          id="faqTitle"
+          data-fr="Avant de commencer."
+        >
+          قبل أن تبدأ.
+        </h2>
+
+        <p
+          data-fr="Les détails pratiques sont à confirmer directement auprès du club."
+        >
+          المعلومات التنظيمية يؤكدها لك النادي مباشرة.
+        </p>
+      </div>
+
+      <div>
+        <details>
+          <summary>
+            <span
+              data-fr="Comment se renseigner sur l'inscription ?"
+            >
+              كيف أستفسر عن التسجيل؟
+            </span>
+          </summary>
+
+          <div class="faq-answer">
+            <p
+              data-fr="Contactez le club pour connaître les modalités, les catégories concernées et les documents demandés."
+            >
+              تواصل مع النادي لمعرفة إجراءات التسجيل،
+              الفئات المعنية والوثائق المطلوبة.
+            </p>
+
+            <a
+              class="text-link"
+              data-enquiry="registration"
+              href="https://wa.me/213780695374"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-fr="Préparer mon message"
+            >
+              جهّز رسالة الاستفسار
+            </a>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span
+              data-fr="Quels sont les horaires d'entraînement ?"
+            >
+              ما هي أوقات التدريب؟
+            </span>
+          </summary>
+
+          <div class="faq-answer">
+            <p
+              data-fr="Demandez le programme en vigueur et les horaires correspondant à votre catégorie. Aucun horaire non confirmé n'est affiché ici."
+            >
+              اطلب من النادي البرنامج الحالي ومواعيد
+              الفئة التي تهمك. لا نعرض هنا مواعيد غير مؤكدة.
+            </p>
+
+            <a
+              class="text-link"
+              data-enquiry="schedule"
+              href="https://wa.me/213780695374"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-fr="Demander les horaires"
+            >
+              اسأل عن المواعيد
+            </a>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span
+              data-fr="Comment trouver le lieu d'entraînement ?"
+            >
+              كيف أصل إلى مكان التدريب؟
+            </span>
+          </summary>
+
+          <div class="faq-answer">
+            <p
+              data-fr="Demandez au club l'adresse précise et le lien de localisation avant de vous déplacer."
+            >
+              اطلب من النادي العنوان الدقيق
+              ورابط الموقع قبل التنقل.
+            </p>
+
+            <a
+              class="text-link"
+              data-enquiry="location"
+              href="https://wa.me/213780695374"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-fr="Demander la localisation"
+            >
+              اطلب الموقع
+            </a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =====================================
+         CLOSING CTA
+    ====================================== -->
+
+    <section class="section closing reveal">
+      <div>
+        <h2 data-fr="Le premier pas ? Un message.">
+          الخطوة الأولى؟ رسالة.
+        </h2>
+
+        <p
+          data-fr="Échangez avec le club et renseignez-vous pour commencer."
+        >
+          تواصل مع النادي واستفسر
+          عن كل ما تحتاجه للبدء.
+        </p>
+      </div>
+
+      <a
+        class="btn btn-red"
+        data-enquiry="registration"
+        href="https://wa.me/213780695374"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span data-fr="Contacter W.R.O.F">
+          تواصل مع W.R.O.F
+        </span>
+
+        <svg
+          class="icon direction-arrow"
+          aria-hidden="true"
+        >
+          <use href="#i-arrow"/>
+        </svg>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- =====================================
+       FOOTER
+  ====================================== -->
+
+  <footer class="site-footer wrap">
+    <div>
+      <span class="footer-brand" dir="ltr">
+        W.R.O.F C.S.A
+      </span>
+
+      <p
+        data-fr="Ouled Fayet · Budo Karaté & Arts martiaux"
+      >
+        أولاد فايت · بودو كاراتيه وفنون قتالية
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <a
+        href="https://www.facebook.com/share/19n8ZdKoHm/?mibextid=wwXIfr"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
+      <a href="mailto:wrof.karate@gmail.com">
+        E-mail
+      </a>
+
+      <span dir="ltr">
+        © <span id="year">2026</span> W.R.O.F
+      </span>
+    </div>
+  </footer>
+
+  <!-- Mobile contact bar appears after the hero. -->
+  <div class="mobile-dock" id="mobileDock">
+    <a
+      class="btn btn-red"
+      data-wa="general"
+      href="https://wa.me/213780695374"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="icon" aria-hidden="true">
+        <use href="#i-chat"/>
+      </svg>
+
+      <span data-fr="WhatsApp">
+        واتساب
+      </span>
+    </a>
+
+    <a
+      class="btn btn-ink"
+      href="tel:+213780695374"
+    >
+      <svg class="icon" aria-hidden="true">
+        <use href="#i-phone"/>
+      </svg>
+
+      <span data-fr="Appeler">
+        اتصال
+      </span>
+    </a>
+  </div>
+
+  <!-- =====================================
+       MESSAGE COMPOSER DIALOG
+  ====================================== -->
+
+  <dialog
+    id="enquiryDialog"
+    aria-labelledby="dialogTitle"
+    aria-describedby="dialogDescription"
+  >
+    <div class="dialog-inner">
+      <div class="dialog-head">
+        <h2
+          id="dialogTitle"
+          data-fr="Parlons de votre premier pas."
+        >
+          لنجهّز رسالتك.
+        </h2>
+
+        <button
+          class="square-btn"
+          type="button"
+          id="closeDialog"
+          aria-label="إغلاق"
+        >
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-close"/>
+          </svg>
+        </button>
+      </div>
+
+      <p
+        class="dialog-desc"
+        id="dialogDescription"
+        data-fr="Choisissez un sujet, adaptez le message, puis ouvrez WhatsApp."
+      >
+        اختر موضوعك، عدّل الرسالة عند الحاجة،
+        ثم افتح واتساب.
+      </p>
+
+      <form
+        action="https://wa.me/213780695374"
+        method="get"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <label
+          class="form-label"
+          for="topic"
+          data-fr="Votre demande"
+        >
+          موضوع الاستفسار
+        </label>
+
+        <select id="topic">
+          <option
+            value="registration"
+            data-fr="Les inscriptions"
+          >
+            التسجيل
+          </option>
+
+          <option
+            value="schedule"
+            data-fr="Les horaires d'entraînement"
+          >
+            أوقات التدريب
+          </option>
+
+          <option
+            value="documents"
+            data-fr="Les catégories et les documents"
+          >
+            الفئات والوثائق المطلوبة
+          </option>
+
+          <option
+            value="location"
+            data-fr="Le lieu d'entraînement"
+          >
+            مكان التدريب
+          </option>
+        </select>
+
+        <label
+          class="form-label"
+          for="message"
+          data-fr="Votre message"
+        >
+          رسالتك
+        </label>
+
+        <textarea
+          id="message"
+          name="text"
+          rows="5"
+          required
+          maxlength="1200"
+          spellcheck="false"
+        ></textarea>
+
+        <p
+          class="privacy-note"
+          data-fr="Ceci n'est pas une inscription en ligne. Aucune demande n'est enregistrée ici. Vous confirmez l'envoi vous-même dans WhatsApp."
+        >
+          هذه ليست استمارة تسجيل. لا تُحفظ الطلبات هنا،
+          ولن تُرسل الرسالة إلا عندما تؤكد إرسالها
+          بنفسك في واتساب.
+        </p>
+
+        <button
+          class="btn btn-red form-submit"
+          type="submit"
+        >
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-chat"/>
+          </svg>
+
+          <span data-fr="Ouvrir le message dans WhatsApp">
+            فتح الرسالة في واتساب
+          </span>
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      /* =====================================
+         CONTACT CONFIGURATION
+      ====================================== */
+
+      const PHONE = "213780695374";
+
+      const messages = {
+        ar: {
+          general:
+            "السلام عليكم نادي الوفاق الرياضي أولاد فايت، أود الحصول على بعض المعلومات من فضلكم.",
+
+          registration:
+            "السلام عليكم نادي W.R.O.F، أود الاستفسار عن إجراءات التسجيل، الفئات المتاحة وشروط الالتحاق. شكرًا.",
+
+          schedule:
+            "السلام عليكم نادي W.R.O.F، أود معرفة برنامج وأوقات التدريب الحالية لكل فئة. شكرًا.",
+
+          documents:
+            "السلام عليكم نادي W.R.O.F، ما هي الفئات المعنية والوثائق المطلوبة للتسجيل؟ شكرًا.",
+
+          location:
+            "السلام عليكم نادي W.R.O.F، هل يمكن إرسال العنوان الدقيق ورابط موقع قاعة التدريب؟ شكرًا."
+        },
+
+        fr: {
+          general:
+            "Bonjour W.R.O.F C.S.A, je souhaiterais obtenir quelques renseignements. Merci.",
+
+          registration:
+            "Bonjour W.R.O.F, je souhaite connaître les modalités d'inscription, les catégories proposées et les conditions pour rejoindre le club. Merci.",
+
+          schedule:
+            "Bonjour W.R.O.F, pourriez-vous me communiquer le programme et les horaires d'entraînement actuels pour chaque catégorie ? Merci.",
+
+          documents:
+            "Bonjour W.R.O.F, quelles sont les catégories concernées et les pièces à fournir pour l'inscription ? Merci.",
+
+          location:
+            "Bonjour W.R.O.F, pourriez-vous m'envoyer l'adresse précise et le lien de localisation de la salle d'entraînement ? Merci."
+        }
+      };
+
+      const ui = {
+        ar: {
+          share: "مشاركة الموقع",
+          close: "إغلاق",
+          logo: "شعار الوفاق الرياضي أولاد فايت",
+          copied: "تم نسخ رابط الموقع.",
+          manual: "انسخ هذا الرابط:",
+          publish:
+            "انشر الموقع أولًا للحصول على رابط قابل للمشاركة.",
+          title:
+            "W.R.O.F C.S.A | الوفاق الرياضي أولاد فايت",
+          shareText:
+            "الوفاق الرياضي أولاد فايت — روابط النادي والتواصل."
+        },
+
+        fr: {
+          share: "Partager le site",
+          close: "Fermer",
+          logo: "Emblème du club W.R.O.F C.S.A",
+          copied: "Le lien du site a été copié.",
+          manual: "Copiez ce lien :",
+          publish:
+            "Publiez le site pour obtenir un lien à partager.",
+          title:
+            "W.R.O.F C.S.A | Budo Karaté · Ouled Fayet",
+          shareText:
+            "W.R.O.F C.S.A — Les liens du club et les contacts."
+        }
+      };
+
+      const languageButton =
+        document.getElementById("languageButton");
+
+      const shareButton =
+        document.getElementById("shareButton");
+
+      const dialog =
+        document.getElementById("enquiryDialog");
+
+      const closeButton =
+        document.getElementById("closeDialog");
+
+      const topic =
+        document.getElementById("topic");
+
+      const message =
+        document.getElementById("message");
+
+      const toast =
+        document.getElementById("toast");
+
+      const dock =
+        document.getElementById("mobileDock");
+
+      const translatedNodes = [
+        ...document.querySelectorAll("[data-fr]")
+      ];
+
+      let language = "ar";
+      let toastTimer;
+      let lastTrigger = null;
+
+      /*
+       * Save the Arabic content once.
+       * Translations use textContent, not injected HTML.
+       */
+      translatedNodes.forEach(node => {
+        node.dataset.ar = node.textContent.trim();
+      });
+
+      function whatsappURL(key, lang = language) {
+        const text =
+          messages[lang][key] ||
+          messages[lang].general;
+
+        return (
+          "https://wa.me/" +
+          PHONE +
+          "?text=" +
+          encodeURIComponent(text)
+        );
+      }
+
+      /* =====================================
+         LANGUAGE SWITCH
+      ====================================== */
+
+      function applyLanguage(lang) {
+        language = lang === "fr" ? "fr" : "ar";
+
+        document.documentElement.lang = language;
+
+        document.documentElement.dir =
+          language === "ar" ? "rtl" : "ltr";
+
+        translatedNodes.forEach(node => {
+          node.textContent = node.dataset[language];
+        });
+
+        languageButton.textContent =
+          language === "ar" ? "FR" : "ع";
+
+        languageButton.setAttribute(
+          "aria-label",
+          language === "ar"
+            ? "Passer en français"
+            : "التبديل إلى العربية"
+        );
+
+        shareButton.setAttribute(
+          "aria-label",
+          ui[language].share
+        );
+
+        closeButton.setAttribute(
+          "aria-label",
+          ui[language].close
+        );
+
+        document.getElementById("heroLogo").alt =
+          ui[language].logo;
+
+        document.title = ui[language].title;
+
+        document
+          .querySelectorAll("[data-wa]")
+          .forEach(link => {
+            link.href = whatsappURL(link.dataset.wa);
+          });
+
+        document
+          .querySelectorAll("[data-enquiry]")
+          .forEach(link => {
+            link.href = whatsappURL(
+              link.dataset.enquiry
+            );
+          });
+
+        message.value =
+          messages[language][topic.value];
+
+        /*
+         * Store only the language preference.
+         * Contact messages are never stored.
+         */
+        try {
+          localStorage.setItem(
+            "wrof-language",
+            language
+          );
+        } catch {
+          // Storage may be blocked by browser settings.
+        }
+      }
+
+      let savedLanguage = "ar";
+
+      try {
+        savedLanguage =
+          localStorage.getItem("wrof-language") ||
+          "ar";
+      } catch {
+        // Continue with Arabic when storage is unavailable.
+      }
+
+      applyLanguage(savedLanguage);
+
+      languageButton.hidden = false;
+      shareButton.hidden = false;
+
+      languageButton.addEventListener("click", () => {
+        applyLanguage(
+          language === "ar" ? "fr" : "ar"
+        );
+      });
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      /* =====================================
+         LOGO FALLBACK
+      ====================================== */
+
+      document
+        .querySelectorAll(".emblem img")
+        .forEach(img => {
+          const fallback = () => {
+            img.parentElement.classList.add(
+              "is-missing"
+            );
+          };
+
+          img.addEventListener("error", fallback);
+
+          if (
+            img.complete &&
+            img.naturalWidth === 0
+          ) {
+            fallback();
+          }
+        });
+
+      /* =====================================
+         TOAST
+      ====================================== */
+
+      function showToast(text) {
+        clearTimeout(toastTimer);
+
+        toast.textContent = text;
+        toast.classList.add("show");
+
+        toastTimer = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2800);
+      }
+
+      /* =====================================
+         SHARE
+      ====================================== */
+
+      shareButton.addEventListener(
+        "click",
+        async () => {
+          if (!/^https?:$/.test(location.protocol)) {
+            showToast(ui[language].publish);
+            return;
+          }
+
+          const url = new URL(location.href);
+          url.hash = "";
+
+          const data = {
+            title: document.title,
+            text: ui[language].shareText,
+            url: url.href
+          };
+
+          if (navigator.share) {
+            try {
+              await navigator.share(data);
+              return;
+            } catch (error) {
+              if (error.name === "AbortError") {
+                return;
+              }
+            }
+          }
+
+          try {
+            if (!navigator.clipboard) {
+              throw new Error(
+                "Clipboard unavailable"
+              );
+            }
+
+            await navigator.clipboard.writeText(
+              url.href
+            );
+
+            showToast(ui[language].copied);
+          } catch {
+            window.prompt(
+              ui[language].manual,
+              url.href
+            );
+          }
+        }
+      );
+
+      /* =====================================
+         WHATSAPP MESSAGE COMPOSER
+      ====================================== */
+
+      document
+        .querySelectorAll("[data-enquiry]")
+        .forEach(link => {
+          link.addEventListener("click", event => {
+            /*
+             * Unsupported browsers keep the ordinary
+             * WhatsApp link instead of a broken dialog.
+             */
+            if (
+              typeof dialog.showModal !== "function"
+            ) {
+              return;
+            }
+
+            event.preventDefault();
+
+            topic.value = link.dataset.enquiry;
+
+            message.value =
+              messages[language][topic.value];
+
+            lastTrigger = link;
+
+            dialog.showModal();
+
+            document.body.classList.add(
+              "modal-open"
+            );
+          });
+        });
+
+      topic.addEventListener("change", () => {
+        message.value =
+          messages[language][topic.value];
+      });
+
+      closeButton.addEventListener("click", () => {
+        dialog.close();
+      });
+
+      dialog.addEventListener("click", event => {
+        if (event.target !== dialog) {
+          return;
+        }
+
+        const box = dialog.getBoundingClientRect();
+
+        const outside =
+          event.clientX < box.left ||
+          event.clientX > box.right ||
+          event.clientY < box.top ||
+          event.clientY > box.bottom;
+
+        if (outside) {
+          dialog.close();
+        }
+      });
+
+      dialog.addEventListener("close", () => {
+        document.body.classList.remove(
+          "modal-open"
+        );
+
+        if (lastTrigger) {
+          lastTrigger.focus({
+            preventScroll: true
+          });
+        }
+      });
+
+      /* =====================================
+         MOBILE DOCK AND SECTION REVEALS
+         No continuous animation loops.
+      ====================================== */
+
+      if ("IntersectionObserver" in window) {
+        const dockObserver =
+          new IntersectionObserver(
+            entries => {
+              dock.classList.toggle(
+                "is-visible",
+                !entries[0].isIntersecting
+              );
+            },
+            {
+              threshold: 0
+            }
+          );
+
+        dockObserver.observe(
+          document.getElementById("hero")
+        );
+
+        const prefersReducedMotion =
+          window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches;
+
+        if (!prefersReducedMotion) {
+          const revealObserver =
+            new IntersectionObserver(
+              entries => {
+                entries.forEach(entry => {
+                  if (!entry.isIntersecting) {
+                    return;
+                  }
+
+                  entry.target.classList.add(
+                    "is-visible"
+                  );
+
+                  revealObserver.unobserve(
+                    entry.target
+                  );
+                });
+              },
+              {
+                threshold: 0.08
+              }
+            );
+
+          document
+            .querySelectorAll(".reveal")
+            .forEach(element => {
+              element.classList.add(
+                "will-reveal"
+              );
+
+              revealObserver.observe(element);
+            });
+        }
+      } else {
+        dock.classList.add("is-visible");
+      }
+    })();
+  </script>
+</body>
+</html>
